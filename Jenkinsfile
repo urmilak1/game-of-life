@@ -1,33 +1,34 @@
 pipeline {
     agent any
        
-     tools { 
-        maven 'maven-3.8.6' 
-        jdk 'jdk-11.0.16.1' 
+     
+    parameters{
+        string(name: ‘URMILA’, description: ‘i am urmila’)
+        
+        text(name: 'DESC', description: 'Describe about the job details')
+ 
+        booleanParam(name: 'SKIP_TEST', description: 'Want to skip running Test cases?')
+ 
+        choice(name: 'BRANCH', choices: ['Master', 'Dev'], description: 'Choose branch')
+ 
+        password(name: 'SONAR_SERVER_PWD', description: 'Enter SONAR password')
     }
     
-       options {
-        timeout(time: 50, unit: 'MINUTES') 
-    }
-     triggers {
-        cron('25 18 * * *')
-    }
-
     stages {
-          
-        stage('Initialize'){
-            steps{
-                echo "JAVA_HOME = C:\Program Files\Java\jdk-11.0.16.1\bin"
-                echo "M2_HOME = C:\urmila_dev\apache-maven-3.8.6-bin"
-            }
-        }
-       stage("build") {
-            agent any
+          stage('Printing Parameters') {
             steps {
-              
-                sh 'mvn clean package '
-              }
+                echo "Hello ${params.NAME}"
+ 
+                echo "Job Details: ${params.DESC}"
+ 
+                echo "Skip Running Test case ?: ${params.SKIP_TEST}"
+ 
+                echo "Branch Choice: ${params.BRANCH}"
+ 
+                echo "SONAR Password: ${params.SONAR_SERVER_PWD}"
             }
-        }    
-    }
+        
+        }
+     }    
+  }
 
