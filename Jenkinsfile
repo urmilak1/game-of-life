@@ -3,7 +3,7 @@ pipeline {
        
      
     parameters{
-        string(name: ‘URMILA’, description: ‘i am urmila’)
+        string(name: 'NAME', description: 'i am urmila')
         
         text(name: 'DESC', description: 'Describe about the job details')
  
