@@ -1,5 +1,10 @@
 pipeline {
     agent any
+       
+     tools { 
+        maven 'apache-maven-3.8.6' 
+        jdk 'jdk11' 
+    }
     
        options {
         timeout(time: 50, unit: 'MINUTES') 
@@ -30,14 +35,13 @@ pipeline {
                 echo 'Hello World'
             }
         }
-       stage("build & SonarQube analysis") {
+       stage("build") {
             agent any
             steps {
-              withSonarQubeEnv('sonarqube-8.9.9.56886') {
-                sh 'mvn clean package sonar:sonar'
+              
+                sh 'mvn clean package '
               }
             }
-          }
-    
+        }    
     }
-}
+
