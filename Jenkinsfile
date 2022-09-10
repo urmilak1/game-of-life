@@ -1,7 +1,7 @@
 pipeline {
     agent any
        tools {
-        maven 'MAVEN_PATH' 
+        maven 'MAVEN_HOME' 
     }
      
     parameters{
