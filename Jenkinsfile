@@ -14,25 +14,11 @@ pipeline {
     }
 
     stages {
-
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-        stage('Example') {
-            steps {
-                echo 'Hello World'
+          
+        stage('Initialize'){
+            steps{
+                echo "JAVA_HOME = C:\Program Files\Java\jdk-11.0.16.1\bin"
+                echo "M2_HOME = C:\urmila_dev\apache-maven-3.8.6-bin"
             }
         }
        stage("build") {
