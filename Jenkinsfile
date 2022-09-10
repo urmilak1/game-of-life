@@ -30,5 +30,14 @@ pipeline {
                 echo 'Hello World'
             }
         }
+       stage("build & SonarQube analysis") {
+            agent any
+            steps {
+              withSonarQubeEnv('sonarqube-8.9.9.56886') {
+                sh 'mvn clean package sonar:sonar'
+              }
+            }
+          }
+    
     }
 }
