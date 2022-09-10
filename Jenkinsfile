@@ -29,12 +29,7 @@ pipeline {
             }
          }
        
-        stage('Initialization') {
-            steps {
-                sh 'echo $JAVA_HOME'
-                  
-            }
-        }
+        
      }    
   }
 
