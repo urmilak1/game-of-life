@@ -1,7 +1,7 @@
 pipeline {
     agent any
        tools {
-        maven 'MAVEN_HOME' 
+        maven-3.8.6 'MAVEN_HOME' 
     }
      
     parameters{
