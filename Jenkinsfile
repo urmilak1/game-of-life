@@ -35,7 +35,7 @@ pipeline {
             }
             steps {
                 sh 'echo $JOB_TIME'
-                  echo "${JAVA_HOME}"
+                  
             }
         }
      }    
