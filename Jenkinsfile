@@ -10,6 +10,7 @@ pipeline {
        stage('Load Tools') {
               steps {
                  echo 'i am urmila'
+                  sh "mvn -version"
               }
          }
     }
