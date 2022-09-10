@@ -27,7 +27,11 @@ pipeline {
  
                 echo "SONAR Password: ${params.SONAR_SERVER_PWD}"
             }
-        
+         }
+       stage('Initialization') {
+            steps {
+                echo "${JAVA_HOME}"
+            }
         }
      }    
   }
