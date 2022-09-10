@@ -1,6 +1,8 @@
 pipeline {
     agent any
-       
+       tools {
+        maven 'MAVEN_PATH' 
+    }
      
     parameters{
         string(name: 'NAME', description: 'i am urmila')
@@ -27,6 +29,11 @@ pipeline {
  
                 echo "SONAR Password: ${params.SONAR_SERVER_PWD}"
             }
+         }
+       stage('Load Tools') {
+              steps {
+                 sh "mvn -version"
+              }
          }
        
         
