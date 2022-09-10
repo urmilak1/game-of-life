@@ -7,8 +7,7 @@ pipeline {
      stages {
        stage('Load Tools') {
               steps {
-                 sh "mvn -version"
-                 sh "jdk -version"
+                 echo 'i am urmila'
               }
          }
     }
