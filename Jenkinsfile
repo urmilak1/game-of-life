@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+           label 'linux-machine'
+       }
        tools {
         maven 'MAVEN_HOME' 
         jdk 'jdk'
